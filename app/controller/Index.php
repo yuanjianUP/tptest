@@ -3,8 +3,8 @@ namespace app\controller;
 
 use app\BaseController;
 use Pheanstalk\Pheanstalk;
-use think\Db;
 use think\Exception;
+use think\facade\Db;
 
 class Index extends BaseController
 {
