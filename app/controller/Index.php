@@ -14,7 +14,7 @@ class Index extends BaseController
         $orderId = Db::table('order')->insert([
             'orderNo' => time(),
             'status' => 0,
-            'ctime' => time(),
+            'ctime' => date('Y-m-d H:i:s')
         ]);
         $conn = Pheanstalk::create('127.0.0.1', 11300,10);
         //选择tube
