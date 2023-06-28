@@ -27,7 +27,7 @@ class Consumer extends Command
         $conn->useTube('test');
         while (1){
             try{
-                $job = $conn->reserveWithTimeout(10);
+                $job = $conn->reserve();
                 if($job === null){
                     throw new Exception('超时了');
                 }
