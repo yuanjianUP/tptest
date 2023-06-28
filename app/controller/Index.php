@@ -23,24 +23,6 @@ class Index extends BaseController
         $conn->put(json_encode(['orderId' => $orderId,'ctime' => time()]),1024,10);
         return 'is add';
     }
-    //消费者
-    public function consumer()
-    {
-        $conn = Pheanstalk::create('127.0.0.1', 11300,10);
-        $conn->useTube('test');
-        try{
-            $job = $conn->reserveWithTimeout(10);
-            if($job === null){
-                throw new Exception('超时了');
-            }
-            sleep(60);
-        }catch (\Pheanstalk\Exception\ConnectionException $e){
-            echo $e->getMessage();
-        }catch (\Exception $e){
-            echo $e->getMessage();
-        }
-        print_r($job);
-    }
 
     public function hello($name = 'ThinkPHP6')
     {
