@@ -17,7 +17,7 @@ class Consumer extends Command
     {
         // 指令配置
         $this->setName('consumer')
-            ->setDescription('the consumer command');
+            ->setDescription('消费者');
     }
 
     protected function execute(Input $input, Output $output)
