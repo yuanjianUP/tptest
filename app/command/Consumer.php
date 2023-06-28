@@ -32,7 +32,7 @@ class Consumer extends Command
                     throw new Exception('超时了');
                 }
                 $data = json_decode($job->getData(),true);
-                Db::table('order')->where(['id'=>$data['orderId']])->update(['status'=>1]);
+                Db::table('order')->where(['id'=>$data['orderId']])->update(['status'=>1,'utime'=>date('Y-m-d H:i:s')]);
                 $conn->delete($job);
             }catch (\Exception $e){
                 echo $e->getMessage();
