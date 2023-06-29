@@ -30,5 +30,6 @@ class Index extends BaseController
         $conn->watch('test');
         $job = $conn->reserve();
         dump($job->getData());
+        dump(time());
     }
 }
