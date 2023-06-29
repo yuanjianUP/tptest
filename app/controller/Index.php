@@ -24,8 +24,11 @@ class Index extends BaseController
         return 'is add';
     }
 
-    public function hello($name = 'ThinkPHP6')
+    public function getList()
     {
-        return 'hello,' . $name;
+        $conn = Pheanstalk::create('127.0.0.1');
+        $conn->watch('test');
+        $job = $conn->reserve();
+        dump($job);
     }
 }
