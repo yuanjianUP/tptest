@@ -11,7 +11,7 @@ class Index extends BaseController
     public function index()
     {
         //创建订单
-        $orderId = Db::table('order')->insert([
+        $orderId = Db::table('order')->insertGetId([
             'orderNo' => time(),
             'status' => 0,
             'ctime' => date('Y-m-d H:i:s')
