@@ -24,11 +24,11 @@ class Consumer extends Command
     protected function execute(Input $input, Output $output)
     {
         $conn = Pheanstalk::create('127.0.0.1',11300,10);
-        $conn->watch('test');
+        $conn->watch('test')->ignore('default');
         while (1){
             try{
                 $job = $conn->reserve();
-                
+
                 if($job === null){
                     throw new Exception('超时了');
                 }
