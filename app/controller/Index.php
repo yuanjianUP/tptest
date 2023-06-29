@@ -29,6 +29,6 @@ class Index extends BaseController
         $conn = Pheanstalk::create('127.0.0.1');
         $conn->watch('test');
         $job = $conn->reserve();
-        dump($job);
+        dump($job->getData());
     }
 }
